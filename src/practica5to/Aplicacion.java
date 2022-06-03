@@ -87,14 +87,42 @@ public class Aplicacion {
             regresar = scan.nextInt();
             if (regresar == 3) {
                 mostrar();
+                promedio(); 
+                numero();
             }
         } while (regresar == 1);
 
     }
+    
+    public static void promedio(){
+        double promedio=0;
+        double suma=0;
+        
+        for (int i = 0; i < lista.size(); i++) {
+            suma=suma+lista.get(i).getNota();
+        }
+        promedio=suma/lista.size();
+        System.out.println("El Promedio es: "+promedio);
+    }
+    public static void numero(){
+        double mayor=lista.get(0).getNota();
+        double menor=lista.get(0).getNota();
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getNota()>mayor) {
+                mayor=lista.get(i).getNota();
+            }
+            if ( lista.get(i).getNota()<menor) {
+                menor=lista.get(i).getNota();
+            }
+        }
+        System.out.println("LA NOTA MENOR ES: " + menor);
+        System.out.println("LA NOTA MAYOR ES: " + mayor);
+        
+    }
 
     public static void mostrar() {
         lista.stream().forEach(i -> System.out.println(" DNI: " + i.getDni() + " NOMBRE: "
-                + i.getNombreMateria() + "NOTA: " + i.getNota() + " PARALEO: " + i.getParalelo()));
+                + i.getNombreMateria() + " NOTA: " + i.getNota() + " PARALEO: " + i.getParalelo()));
     }
 
 }
