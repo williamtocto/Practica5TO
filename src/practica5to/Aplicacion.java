@@ -87,37 +87,45 @@ public class Aplicacion {
             regresar = scan.nextInt();
             if (regresar == 3) {
                 mostrar();
-                promedio(); 
+                promedio();
                 numero();
             }
         } while (regresar == 1);
 
     }
-    
-    public static void promedio(){
-        double promedio=0;
-        double suma=0;
-        
+
+    public static void promedio() {
+        double promedio = 0;
+        double suma = 0;
+
         for (int i = 0; i < lista.size(); i++) {
-            suma=suma+lista.get(i).getNota();
+            suma = suma + lista.get(i).getNota();
         }
-        promedio=suma/lista.size();
-        System.out.println("El Promedio es: "+promedio);
+        promedio = suma / lista.size();
+        System.out.println("El Promedio es: " + promedio);
     }
-    public static void numero(){
-        double mayor=lista.get(0).getNota();
-        double menor=lista.get(0).getNota();
+
+    public static void numero() {
+        double mayor = lista.get(0).getNota();
+        double menor = lista.get(0).getNota();
+        int posicion_1 = 0;
+        int posicion_2 = 0;
         for (int i = 0; i < lista.size(); i++) {
-            if (lista.get(i).getNota()>mayor) {
-                mayor=lista.get(i).getNota();
+            if (lista.get(i).getNota() > mayor) {
+                mayor = lista.get(i).getNota();
+                posicion_1 = i;
             }
-            if ( lista.get(i).getNota()<menor) {
-                menor=lista.get(i).getNota();
+            if (lista.get(i).getNota() < menor) {
+                menor = lista.get(i).getNota();
+                posicion_2 = i;
             }
         }
-        System.out.println("LA NOTA MENOR ES: " + menor);
-        System.out.println("LA NOTA MAYOR ES: " + mayor);
+        System.out.println("LA NOTA MAYOR ES: " + mayor + " DNI:" + lista.get(posicion_1).getDni()
+                + "Materia: " + lista.get(posicion_1).getNombreMateria() + " Paralelo: " + lista.get(posicion_1).getParalelo());
         
+        System.out.println(" LA NOTA MENOR ES: " + menor + " DNI:" + lista.get(posicion_2).getDni()
+                + "Materia: " + lista.get(posicion_2).getNombreMateria() + " Paralelo: " + lista.get(posicion_2).getParalelo());
+
     }
 
     public static void mostrar() {
